@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:16
+    container_name: "codepen-postgres-db"
+    environment:
+      POSTGRES_USER: kitsu
+      POSTGRES_PASSWORD: codepen.postgres.735
+      POSTGRES_DB: codepen-appdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kitsu postgres"] # RETURNS service_healthy or service_unhealthy
+      interval: 5s
+      timeout: 30s
+      retries: 5
+  backend:
+    build: 
+      context: ./backend
+    container_name: codepen-backend-express
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "5000:7000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npm run dev
+    env_file:
+      - ./backend/.env.development
+  frontend:
+    build: 
+      context: ./frontend
+    container_name: codepen-frontend-react
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: npm run dev
+
+volumes:
+  postgres_data:
