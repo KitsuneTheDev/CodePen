@@ -6,7 +6,7 @@ export default function Header() {
             <div className={style.headerLeft}>
                 <div className={style.leftLogo}></div>
                 <div className={style.leftTitle}>
-                    <h1>Percopn</h1>
+                    <h1>Pecopn</h1>
                 </div>
             </div>
             <div className={style.headerRight}>

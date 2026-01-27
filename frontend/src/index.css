@@ -1,13 +1,69 @@
 @import 'tailwindcss';
+@import './commoncss/fonts.css';
 
 :root {
+    --color-1-primary: #572e9d;
+    --color-1-secondary: #e1d4ff;
+    --color-1-accent: #6bffb3;
 
+    --color-2-primary: #001a56;
+    --color-2-secondary: #007ff0;
+    --color-2-accent: #f1fc88;
+
+    --font-bevellier-xl: 'Bevellier-Bold';
+    --font-bevellier-xli: 'Bevellier-BoldItalic';
+    --font-bevellier-l: 'Bevellier-Semibold';
+    --font-bevellier-li: 'Bevellier-SemiboldItalic';
+    --font-bevellier-m: 'Bevellier-Medium';
+    --font-bevellier-mi: 'Bevellier-MediumItalic';
+    --font-bevellier-r: 'Bevellier-Regular';
+    --font-bevellier-ri: 'Bevellier-RegularItalic';
+    --font-bevellier-sm: 'Bevellier-Light';
+    --font-bevellier-smi: 'Bevellier-LightItalic';
+    --font-bevellier-xs: 'Bevellier-Xlight';
+    --font-bevellier-xsi: 'Bevellier-XlightItalic';
+    --font-bevellier-xxs: 'Bevellier-Thin';
+    --font-bevellier-xxsi: 'Bevellier-ThinItalic';
+
+    --font-redhat-xl: 'Redhat-Bold';
+    --font-redhat-xli: 'Redhat-BoldItalic';
+    --font-redhat-l: 'Redhat-Semibold';
+    --font-redhat-li: 'Redhat-SemiboldItalic';
+    --font-redhat-m: 'Redhat-Medium';
+    --font-redhat-mi: 'Redhat-MediumItalic';
+    --font-redhat-r: 'Redhat-Regular';
+    --font-redhat-ri: 'Redhat-RegularItalic';
+    --font-redhat-sm: 'Redhat-Light';
+    --font-redhat-smi: 'Redhat-LightItalic';
+
+    --font-switzer-xl: 'Switzer-Bold';
+    --font-switzer-xli: 'Switzer-BoldItalic';
+    --font-switzer-l: 'Switzer-Bold';
+    --font-switzer-li: 'Switzer-BoldItalic';
+    --font-switzer-m: 'Switzer-Medium';
+    --font-switzer-mi: 'Switzer-MediumItalic';
+    --font-switzer-r: 'Switzer-Regular';
+    --font-switzer-ri: 'Switzer-RegularItalic';
+    --font-switzer-sm: 'Switzer-Light';
+    --font-switzer-smi: 'Switzer-LightItalic';
+    --font-switzer-xs: 'Switzer-Xlight';
+    --font-switzer-xsi: 'Switzer-XlightItalic';
+    --font-switzer-xxs: 'Switzer-Thin';
+    --font-switzer-xxsi: 'Switzer-ThinItalic';
+
+    --spacing-tiny: 4;
+    --spacing-sub: 8px;
+    --spacing-collegue: 12px;
+    --spacing-comp: 20px;
+    --spacing-section: 32px;
+    --spacing-huge: 52px;
 }
 
 html {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    font-family: var(--font-switzer-r);
 }
 
 body {

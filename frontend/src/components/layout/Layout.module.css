@@ -7,7 +7,7 @@
     grid-template-rows: auto 1fr;
     grid-template-areas: 
         "head head head head head head head head head head head head"
-        "side side main main main main main main main main main main"
+        "side side side main main main main main main main main main"
     ;
     gap: 16px;
     box-sizing: border-box  ;

@@ -8,8 +8,8 @@ import Main from '../main/Main.jsx';
 export default function Layout() {
     
     return(
-        <div className={`${style.layoutContainer} bg-[#490062] text-[#006f5b]`}>
-            <header className={`${style.layoutHeader} flex justify-center items-center text-5xl flex-col bg-[#812ea0]`}>
+        <div className={`${style.layoutContainer}`}>
+            <header className={`${style.layoutHeader} flex justify-center items-center text-5xl flex-col`}>
                 <Header />
             </header>
             <aside className={`${style.layoutAside} flex justify-center items-center text-5xl h-full`}>

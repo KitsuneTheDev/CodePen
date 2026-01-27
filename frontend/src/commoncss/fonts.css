@@ -1,0 +1,265 @@
+@font-face {
+    font-family: Bevellier-Bold;
+    src: url(../assets/fonts/Bevellier-Bold.otf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-BoldItalic;
+    src: url(../assets/fonts/Bevellier-BoldItalic.otf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Semibold;
+    src: url(../assets/fonts/Bevellier-Semibold.otf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-SemiboldItalic;
+    src: url(../assets/fonts/Bevellier-SemiboldItalic.otf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Medium;
+    src: url(../assets/fonts/Bevellier-Medium.otf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-MediumItalic;
+    src: url(../assets/fonts/Bevellier-MediumItalic.otf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Regular;
+    src: url(../assets/fonts/Bevellier-Regular.otf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-RegularItalic;
+    src: url(../assets/fonts/Bevellier-Italic.otf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Light;
+    src: url(../assets/fonts/Bevellier-Light.otf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-LightItalic;
+    src: url(../assets/fonts/Bevellier-LightItalic.otf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Xlight;
+    src: url(../assets/fonts/Bevellier-Extralight.otf);
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-XlightItalic;
+    src: url(../assets/fonts/Bevellier-ExtralightItalic.otf);
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Bevellier-Thin;
+    src: url(../assets/fonts/Bevellier-Thin.otf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Bevellier-ThinItalic;
+    src: url(../assets/fonts/Bevellier-ThinItalic.otf);
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Redhat-Bold;
+    src: url(../assets/fonts/RedHatDisplay-Bold.otf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Redhat-BoldItalic;
+    src: url(../assets/fonts/RedHatDisplay-BoldItalic.otf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Redhat-Semibold;
+    src: url(../assets/fonts/RedHatDisplay-SemiBold.otf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Redhat-SemiboldItalic;
+    src: url(../assets/fonts/RedHatDisplay-SemiBoldItalic.otf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Redhat-Medium;
+    src: url(../assets/fonts/RedHatDisplay-Medium.otf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Redhat-MediumItalic;
+    src: url(../assets/fonts/RedHatDisplay-MediumItalic.otf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Redhat-Regular;
+    src: url(../assets/fonts/RedHatDisplay-Regular.otf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Redhat-RegularItalic;
+    src: url(../assets/fonts/RedHatDisplay-Italic.otf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Redhat-Light;
+    src: url(../assets/fonts/RedHatDisplay-Light.otf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Redhat-LightItalic;
+    src: url(../assets/fonts/RedHatDisplay-LightItalic.otf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Bold;
+    src: url(../assets/fonts/Switzer-Bold.otf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-BoldItalic;
+    src: url(../assets/fonts/Switzer-BoldItalic.otf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Semibold;
+    src: url(../assets/fonts/Switzer-Semibold.otf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-SemiboldItalic;
+    src: url(../assets/fonts/Switzer-SemiboldItalic.otf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Medium;
+    src: url(../assets/fonts/Switzer-Medium.otf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-MediumItalic;
+    src: url(../assets/fonts/Switzer-MediumItalic.otf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Regular;
+    src: url(../assets/fonts/Switzer-Regular.otf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-RegularItalic;
+    src: url(../assets/fonts/Switzer-Italic.otf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Light;
+    src: url(../assets/fonts/Switzer-Light.otf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-LightItalic;
+    src: url(../assets/fonts/Switzer-LightItalic.otf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Xlight;
+    src: url(../assets/fonts/Switzer-Extralight.otf);
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-XlightItalic;
+    src: url(../assets/fonts/Switzer-ExtralightItalic.otf);
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Switzer-Thin;
+    src: url(../assets/fonts/Switzer-Thin.otf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Switzer-ThinItalic;
+    src: url(../assets/fonts/Switzer-ThinItalic.otf);
+    font-weight: 100;
+    font-style: italic;
+}
