@@ -15,14 +15,13 @@ export const loginUser = async ({email, password}) => {
         if(!user) {
             throw new ValidationError('Wrong email!');
         }
-
         const match = compareBcryptHash(password, user.password);
 
         if(!match) {
             throw new ValidationError('Wrong password!');
         }
-
-        return user;
+        
+        return user.email;
 
     } catch(error) {
         if(error instanceof AppError) {

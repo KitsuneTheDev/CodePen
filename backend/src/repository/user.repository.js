@@ -18,7 +18,7 @@ export const getUserByEmail = async ({email}) => {
         const user = await db.User.findOne({
             where: {email},
         });
-        return user.email;
+        return user;
     } catch(error) {
         throw error;
     }
