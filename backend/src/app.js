@@ -5,6 +5,9 @@ import cors from 'cors';
 import { initDatabase } from './database/index.js';
 import { Snippet } from './database/models/Snippet.model.js';
 
+// MIDDLEWARE IMPORTS
+import { errorHandler } from './middleware/errorHandler.middleware.js';
+
 const app = express();
 const corsOptions = {
     origin: 'http://localhost:5173',
@@ -42,5 +45,6 @@ await initDatabase();
 //         res.status(500).json({error: error.message});
 //     }
 // });
+app.use(errorHandler);
 
 export default app;
