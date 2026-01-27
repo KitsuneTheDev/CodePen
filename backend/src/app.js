@@ -8,6 +8,9 @@ import { Snippet } from './database/models/Snippet.model.js';
 // MIDDLEWARE IMPORTS
 import { errorHandler } from './middleware/errorHandler.middleware.js';
 
+// ROUTER IMPORTS
+import authRouter from './route/auth.route.js';
+
 const app = express();
 const corsOptions = {
     origin: 'http://localhost:5173',
@@ -19,6 +22,7 @@ app.use(express.json());
 
 await initDatabase();
 
+app.use('/api', authRouter);
 // app.get('/health', async (req, res, next) => {
 //     res.status(200).json({
 //         status: 'ok',

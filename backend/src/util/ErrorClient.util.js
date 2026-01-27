@@ -5,7 +5,7 @@ export class AppError extends Error {
         this.statusCode = statusCode;
         this.isOperational = true;
 
-        Error.captureStackTree(this, this.constructor); // Do not include the lines before this, including this line, into the error stack.
+        Error.captureStackTrace(this, this.constructor); // Do not include the lines before this, including this line, into the error stack.
     }
 }
 

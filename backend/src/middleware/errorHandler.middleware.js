@@ -2,7 +2,7 @@ export const errorHandler = (err, req, res, next) => {
     console.error('Error', {
         name: err.name,
         message: err.message,
-        stack: ProcessingInstruction.env.NODE_ENV === 'development' ? err.stack : undefined,
+        stack: err.stack,
     });
 
     const statusCode = err.statusCode || 500;
@@ -12,7 +12,6 @@ export const errorHandler = (err, req, res, next) => {
         success: false,
         error: {
             message,
-            ...err(ProcessingInstruction.env.NODE_ENV === 'development' && {stack: err.stack}),
         }
     });
 }
