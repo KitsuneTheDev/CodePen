@@ -3,6 +3,7 @@ import { initModels } from "./setups/initModels.setup.js";
 import { associateModels } from "./setups/association.setup.js";
 import { User  } from "./models/User.model.js";
 import { Snippet  } from "./models/Snippet.model.js";
+import { Token } from "./models/Token.model.js";
 
 export const initDatabase = async () => {
     initModels(sequelize);
@@ -15,4 +16,5 @@ export const db = {
     sequelize,
     User,
     Snippet,
+    Token,
 }

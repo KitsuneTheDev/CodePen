@@ -23,3 +23,16 @@ export const getUserByEmail = async ({email}) => {
         throw error;
     }
 }
+
+export const saveRefreshToken = async ({token, userId}) => {
+    try{
+        const savedToken = await db.Token.create({
+            token,
+            userId,
+        });
+
+        return savedToken;
+    } catch(error) {
+        throw error;
+    }
+}
