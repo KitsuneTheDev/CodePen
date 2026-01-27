@@ -6,3 +6,7 @@ export const createBcryptHash = async (password) => {
     console.log('HASH COMPLETE');
     return hashed;
 }
+
+export const compareBcryptHash = async (payload, hashedPassword) => {
+    return bcrypt.compare(payload, hashedPassword);
+}

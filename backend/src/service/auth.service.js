@@ -1,5 +1,5 @@
 import { getUserByEmail, createNewUser } from '../repository/user.repository.js';
-import { createBcryptHash } from '../util/bcrypt.util.js';
+import { createBcryptHash, compareBcryptHash } from '../util/bcrypt.util.js';
 
 import { AuthenticationError, ValidationError, InternalError, AppError } from '../util/ErrorClient.util.js';
 
@@ -11,10 +11,19 @@ export const loginUser = async ({email, password}) => {
 
         // JWT COMPARISON HERE
 
-        const user = await getUserByEmail(email);
+        const user = await getUserByEmail({email});
         if(!user) {
             throw new ValidationError('Wrong email!');
         }
+
+        const match = compareBcryptHash(password, user.password);
+
+        if(!match) {
+            throw new ValidationError('Wrong password!');
+        }
+
+        return user;
+
     } catch(error) {
         if(error instanceof AppError) {
             throw error;

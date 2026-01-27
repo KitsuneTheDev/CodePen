@@ -2,8 +2,8 @@ import { loginUser, signupUser } from '../service/auth.service.js';
 
 export const login = async (req, res, next) => {
     try {
-        const credentials = {email: req.body.email, password: req.body.password};
-        const response = await loginUser(credentials);
+        const {email, password} = req.body;
+        const response = await loginUser({email, password});
 
         res.status(200).json(response);
     } catch(error) {
