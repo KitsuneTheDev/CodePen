@@ -11,7 +11,7 @@ export const login = async (req, res, next) => {
             maxAge: 1_000 * 60 * 60 * 24 * 7,
         });
         res.send('Cookie sent!');
-        res.status(200).json(response);
+        res.status(200).json("Logged in!");
     } catch(error) {
         next(error);
     }
