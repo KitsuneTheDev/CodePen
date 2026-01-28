@@ -34,7 +34,7 @@ export const loginUser = async ({email, password}) => {
 
 export const signupUser = async ({email, password, username}) => {
     try{
-        if(!email || !password, !username) {
+        if(!email || !password || !username) {
             throw new AuthenticationError('Email and password required!');
         } 
 
@@ -51,9 +51,10 @@ export const signupUser = async ({email, password, username}) => {
     }
 }
 
-export const logoutUser = async () => {
+export const logoutUser = async ({token}) => {
     try {
-        const userId = decodeRefreshToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ODBlNjgzNS00ZjE1LTQwMTktOTQ3ZC05YzMxYjZlOGVhM2UiLCJpYXQiOjE3Njk2MDE1MTMsImV4cCI6MTc3MDIwNjMxM30.vVzVc20FRvwnebR8ocOpysgyLhkCqW8Qmx84A4QgsgQ");
+        console.log(token);
+        const userId = decodeRefreshToken(token);
         const response = await deleteRefreshToken({userId});
 
         return response;
