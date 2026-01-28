@@ -29,8 +29,7 @@ export const signup = async (req, res, next) => {
 
 export const logout = async (req, res, next) => {
     try {
-        const {userId} = req.body;
-        const response = await logoutUser({userId});
+        const response = await logoutUser();
 
         res.status(200).json(response);
     } catch(error) {

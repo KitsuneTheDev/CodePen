@@ -39,3 +39,13 @@ export const verifyRefreshToken = (token) => {
 
     return verifiedToken;
 }
+
+export const decodeRefreshToken = (token) => {
+    const decodedToken = jwt.decode(
+        token,
+        process.env.JWT_REFRESH_SECRET,
+        {complete: true}
+    );
+    console.log(decodedToken);
+    return decodedToken?.sub;
+}
