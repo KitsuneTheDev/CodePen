@@ -1,4 +1,4 @@
-import { getUserByEmail, createNewUser, saveRefreshToken } from '../repository/user.repository.js';
+import { getUserByEmail, createNewUser, saveRefreshToken, deleteRefreshToken } from '../repository/user.repository.js';
 import { createBcryptHash, compareBcryptHash } from '../util/bcrypt.util.js';
 import { createRefreshToken } from '../util/jwt.util.js';
 import { AuthenticationError, ValidationError, InternalError, AppError } from '../util/ErrorClient.util.js';
@@ -47,6 +47,20 @@ export const signupUser = async ({email, password, username}) => {
             throw error;
         } else {
             throw new InternalError('Could not sign up!');
+        }
+    }
+}
+
+export const logoutUser = async ({userId}) => {
+    try {
+        const response = await deleteRefreshToken({userId});
+
+        return response;
+    }catch(error) {
+        if(error instanceof AppError) {
+            throw error;
+        } else {
+            throw new InternalError('Could not log out!');
         }
     }
 }
