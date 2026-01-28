@@ -37,13 +37,20 @@ export const saveRefreshToken = async ({token, userId}) => {
     }
 }
 
-export const deleteRefreshToken = async ({userId}) => {
+export const deleteRefreshToken = async ({userId, deviceId = null}) => {
     try{
-        console.log('DELETING RECORD');
-        const deletedRecordCount = await db.Token.destroy({
-            where: {userId},
-        });
-
+        let deletedRecordCount;
+        if(!deviceId) {
+            console.log('DELETING RECORD');
+            deletedRecordCount = await db.Token.destroy({
+                where: {userId},
+            });
+            console.log('DELETED');
+        } else {
+            deletedRecordCount = await db.Token.destroy({
+                where: {userId, deviceId}
+            });
+        }
         return `${deletedRecordCount} record deleted!`;
     } catch(error) {
         throw error;

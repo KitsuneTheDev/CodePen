@@ -4,14 +4,15 @@ export const login = async (req, res, next) => {
     try {
         const {email, password} = req.body;
         const response = await loginUser({email, password});
+        console.log(response);
         res.cookie('refreshToken', response, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
             maxAge: 1_000 * 60 * 60 * 24 * 7,
-        });
-        res.send('Cookie sent!');
-        res.status(200).json("Logged in!");
+        })
+        .status(200)
+        .json({message: 'User logged in!'});
     } catch(error) {
         next(error);
     }
@@ -20,11 +21,6 @@ export const login = async (req, res, next) => {
 export const signup = async (req, res, next) => {
     try{
         const {email, password, username} = req.body;
-        console.log(`
-            req.body -----> ${req.body},
-            email --------> ${email},
-            password -----> ${password},
-            `);
         const response = await signupUser({email, password, username});
 
         res.status(201).json(response);
@@ -35,9 +31,16 @@ export const signup = async (req, res, next) => {
 
 export const logout = async (req, res, next) => {
     try {
-        const refreshToken = req.cookies?.refreshToken;
+        console.log("cookies --->", req.cookies);
+        const refreshToken = req.cookies?.refreshToken?.token;
         const response = await logoutUser({token: refreshToken});
-        res.status(200).json(response);
+        res.clearCookie('refreshToken', {
+            httpOnly: true,
+            sameSite: 'strict',
+            secure: process.env.NODE_ENV === 'production',
+        })
+        .status(200)
+        .json(response);
     } catch(error) {
         next(error);
     }

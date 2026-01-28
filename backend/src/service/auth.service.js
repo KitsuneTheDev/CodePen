@@ -21,7 +21,7 @@ export const loginUser = async ({email, password}) => {
 
         const token = createRefreshToken(user.id);
         const savedToken = await saveRefreshToken({token, userId: user.id});
-        return savedToken.token;
+        return savedToken;
 
     } catch(error) {
         if(error instanceof AppError) {
