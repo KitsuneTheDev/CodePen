@@ -10,7 +10,7 @@ import { Snippet } from './database/models/Snippet.model.js';
 import { errorHandler } from './middleware/errorHandler.middleware.js';
 
 // ROUTER IMPORTS
-import authRouter from './route/auth.route.js';
+import authRouter from './route/account.route.js';
 
 const app = express();
 const corsOptions = {

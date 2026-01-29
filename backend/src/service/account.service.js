@@ -1,6 +1,6 @@
 import { getUserByEmail, createNewUser, saveRefreshToken, deleteRefreshToken } from '../repository/user.repository.js';
 import { createBcryptHash, compareBcryptHash } from '../util/bcrypt.util.js';
-import { createRefreshToken, decodeRefreshToken } from '../util/jwt.util.js';
+import { createAccessToken, createRefreshToken, decodeRefreshToken } from '../util/jwt.util.js';
 import { AuthenticationError, ValidationError, InternalError, AppError } from '../util/ErrorClient.util.js';
 
 export const loginUser = async ({email, password}) => {
@@ -19,9 +19,10 @@ export const loginUser = async ({email, password}) => {
             throw new ValidationError('Wrong password!');
         }
 
-        const token = createRefreshToken(user.id);
-        const savedToken = await saveRefreshToken({token, userId: user.id});
-        return savedToken;
+        const refreshToken = createRefreshToken(user.id);
+        const savedRefreshToken = await saveRefreshToken({token: refreshToken, userId: user.id});
+        const accessToken = createAccessToken(user.id);
+        return {refreshToken: savedRefreshToken, accessToken};
 
     } catch(error) {
         if(error instanceof AppError) {

@@ -33,6 +33,7 @@ export const saveRefreshToken = async ({token, userId}) => {
 
         return savedToken;
     } catch(error) {
+        console.error(error);
         throw error;
     }
 }

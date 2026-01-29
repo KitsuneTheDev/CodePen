@@ -1,18 +1,17 @@
-import { loginUser, logoutUser, signupUser } from '../service/auth.service.js';
+import { loginUser, logoutUser, signupUser } from '../service/account.service.js';
 
 export const login = async (req, res, next) => {
     try {
         const {email, password} = req.body;
-        const response = await loginUser({email, password});
-        console.log(response);
-        res.cookie('refreshToken', response, {
+        const {refreshToken, accessToken} = await loginUser({email, password});
+        res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
             maxAge: 1_000 * 60 * 60 * 24 * 7,
         })
         .status(200)
-        .json({message: 'User logged in!'});
+        .json({accessToken: accessToken});
     } catch(error) {
         next(error);
     }
