@@ -1,12 +1,14 @@
 import { AuthenticationError } from "../util/ErrorClient.util.js";
-import { decodeRefreshToken } from "../util/jwt.util.js";
+import { verifyAccessToken } from "../util/jwt.util.js";
 
 export const authUser = (req, res, next) => {
-    const accessToken = req.headers['Authorization']?.split(' ')[1] || null;
+    console.log(req.headers);
+    const accessToken = req.headers['authorization']?.split(' ')[1] || null;
+    console.log(accessToken);
     if(!accessToken) {
         throw new AuthenticationError('No access token found!');
     } else {
-        const userId = decodeRefreshToken(accessToken);
+        const userId = verifyAccessToken(accessToken);
         req.userId = userId;
         next();
     }

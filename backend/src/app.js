@@ -11,6 +11,7 @@ import { errorHandler } from './middleware/errorHandler.middleware.js';
 
 // ROUTER IMPORTS
 import authRouter from './route/account.route.js';
+import { authUser } from './middleware/auth.middleware.js';
 
 const app = express();
 const corsOptions = {
@@ -25,12 +26,13 @@ app.use(cookieParser());
 await initDatabase();
 
 app.use('/api', authRouter);
-// app.get('/health', async (req, res, next) => {
-//     res.status(200).json({
-//         status: 'ok',
-//         message: 'CodeSnap API running!'
-//     });
-// });
+app.use(authUser);
+app.get('/api/health', async (req, res, next) => {
+    res.status(200).json({
+        status: 'ok',
+        message: 'CodeSnap API running!'
+    });
+});
 
 // app.post('/api/snippets', async (req, res, next) => {
 //     try {
