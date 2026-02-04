@@ -8,10 +8,11 @@ import { Snippet } from './database/models/Snippet.model.js';
 
 // MIDDLEWARE IMPORTS
 import { errorHandler } from './middleware/errorHandler.middleware.js';
+import { authUser } from './middleware/auth.middleware.js';
 
 // ROUTER IMPORTS
 import authRouter from './route/account.route.js';
-import { authUser } from './middleware/auth.middleware.js';
+import refreshRouter from './route/refresh.route.js';
 
 const app = express();
 const corsOptions = {
@@ -25,6 +26,7 @@ app.use(cookieParser());
 
 await initDatabase();
 
+app.use('/api', refreshRouter);
 app.use('/api', authRouter);
 app.use(authUser);
 app.get('/api/health', async (req, res, next) => {
