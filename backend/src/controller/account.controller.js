@@ -11,7 +11,7 @@ export const login = async (req, res, next) => {
             maxAge: 1_000 * 60 * 60 * 24 * 7,
         })
         .status(200)
-        .json({accessToken: accessToken});
+        .json({accessToken: accessToken, refreshToken: refreshToken});
     } catch(error) {
         next(error);
     }

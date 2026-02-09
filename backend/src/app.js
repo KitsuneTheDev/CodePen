@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 await initDatabase();
 
-// app.use('/api', refreshRouter);
+app.use('/api', refreshRouter);
 app.use('/api', authRouter);
 app.use(authUser);
 app.get('/api/health', async (req, res, next) => {

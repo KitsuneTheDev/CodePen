@@ -1,4 +1,4 @@
-import { refreshAccessToken } from "../service/refresh.service";
+import { refreshAccessToken } from "../service/refresh.service.js";
 
 export const refresh = (req, res, next) => {
     
