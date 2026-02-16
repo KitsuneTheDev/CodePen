@@ -8,20 +8,21 @@ export const refreshAccessToken = async ({refreshToken}) => {
         throw new AuthenticationError('No refresh token found');
     }
 
-    const userId = verifyRefreshToken(refreshToken);
+    const userIdInToken = verifyRefreshToken(refreshToken)?.sub;
     const userIdFromDatabase = await getUserIdByRefreshToken(refreshToken);
+    console.log(userIdInToken, userIdFromDatabase);
 
     if(!userIdFromDatabase || userIdInToken !== userIdFromDatabase) {
         throw new ConflictError('Token mismatch or invalid session');
     }
-
+    const userId = userIdFromDatabase;
     const newRefreshToken = createRefreshToken(userId);
-    const savedTokenUserId = saveRefreshToken({token: newRefreshToken, userId});
+    const savedToken = await saveRefreshToken({token: newRefreshToken, userId});
     const newAccessToken = createAccessToken(userId);
 
     return {
         refreshToken: newRefreshToken,
         accessToken: newAccessToken,
-        userId: savedTokenUserId
+        userId: savedToken.id,
     };
 }
