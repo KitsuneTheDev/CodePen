@@ -31,7 +31,7 @@ export const saveRefreshToken = async ({token, userId}) => {
             userId,
         });
 
-        return savedToken;
+        return savedToken?.dataValues?.token;
     } catch(error) {
         console.error(error);
         throw error;

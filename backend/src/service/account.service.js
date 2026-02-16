@@ -13,7 +13,7 @@ export const loginUser = async ({email, password}) => {
         if(!user) {
             throw new ValidationError('Wrong email!');
         }
-        const match = compareBcryptHash(password, user.password);
+        const match = await compareBcryptHash(password, user.password);
 
         if(!match) {
             throw new ValidationError('Wrong password!');
