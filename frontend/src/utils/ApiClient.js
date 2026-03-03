@@ -7,8 +7,8 @@ export class ApiClient {
         return await this.#send({ endpoint, method: 'GET' });
     }
 
-    async post({ endpoint, body }) {
-        return await this.#send({ endpoint, method: 'POST', body });
+    async post({ endpoint, body, token = null }) {
+        return await this.#send({ endpoint, method: 'POST', body, token });
     }
 
     async #send({ method, endpoint, body = null }) {
@@ -21,6 +21,10 @@ export class ApiClient {
         if(body !== null) {
             options.body = JSON.stringify(body);
             options.headers['Content-Type'] = 'application/json';
+        }
+
+        if(token !== null) {
+            options.headers['Authorization'] = `Bearer ${token}`;
         }
 
         try{
