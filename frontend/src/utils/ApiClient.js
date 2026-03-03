@@ -1,3 +1,5 @@
+import { getAccessToken } from "./localStorage.js";
+
 export class ApiClient {
     constructor(baseUrl) {
         this.baseUrl = baseUrl;
@@ -7,8 +9,8 @@ export class ApiClient {
         return await this.#send({ endpoint, method: 'GET' });
     }
 
-    async post({ endpoint, body, token = null }) {
-        return await this.#send({ endpoint, method: 'POST', body, token });
+    async post({ endpoint, body }) {
+        return await this.#send({ endpoint, method: 'POST', body });
     }
 
     async #send({ method, endpoint, body = null }) {
@@ -17,6 +19,8 @@ export class ApiClient {
             headers: {},
             credentials: 'include',
         }
+
+        const token = getAccessToken();
 
         if(body !== null) {
             options.body = JSON.stringify(body);
@@ -30,13 +34,15 @@ export class ApiClient {
         try{
             const response = await fetch(`${this.baseUrl}${endpoint}`, options);
             if(!response.ok) {
-               const error = response.json();
+               const error = await response.json();
                throw new Error(error.message || `HTTP Error: ${response.status}`);
-            } else if(response.status === 204) {
+            } 
+            
+            if(response.status === 204) {
                 return null;
-            } else {
-                return response.json();
             }
+
+            return await response.json();
         } catch(error) {
             if(error instanceof TypeError) {
                 throw new Error('Network error. Check your connection.');

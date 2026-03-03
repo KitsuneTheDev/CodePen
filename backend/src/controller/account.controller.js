@@ -3,7 +3,7 @@ import { loginUser, logoutUser, signupUser } from '../service/account.service.js
 export const login = async (req, res, next) => {
     try {
         const {email, password} = req.body;
-        const {refreshToken, accessToken} = await loginUser({email, password});
+        const {refreshToken, accessToken, userData} = await loginUser({email, password});
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -11,7 +11,7 @@ export const login = async (req, res, next) => {
             maxAge: 1_000 * 60 * 60 * 24 * 7,
         })
         .status(200)
-        .json({accessToken: accessToken, refreshToken: refreshToken});
+        .json({accessToken: accessToken, userData: userData});
     } catch(error) {
         next(error);
     }

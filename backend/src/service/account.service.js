@@ -22,7 +22,7 @@ export const loginUser = async ({email, password}) => {
         const refreshToken = createRefreshToken(user.id);
         const savedRefreshToken = await saveRefreshToken({token: refreshToken, userId: user.id});
         const accessToken = createAccessToken(user.id);
-        return {refreshToken: savedRefreshToken, accessToken};
+        return {refreshToken: savedRefreshToken, accessToken, userData: {username: user.username, email: user.email}};
 
     } catch(error) {
         if(error instanceof AppError) {
