@@ -1,16 +1,17 @@
-// import style from './Main.module.css';
-// import { useAuth } from '../../contexts/authContext.jsx';
-// import { useEffect } from 'react';
+import style from './Main.module.css';
+import { useAuth } from '../../contexts/authContext.jsx';
+import { useEffect } from 'react';
+import { Outlet } from 'react-router';
 
-// export default function Main() {
+export default function Main() {
 
-//     const context = useAuth()
+    const context = useAuth()
 
-//     useEffect(() => {
-//         console.log(context);
-//     }, []);
+    useEffect(() => {
+        console.log(context);
+    }, []);
 
-//     return(
-//         <h1>MAIN</h1>
-//     );
-// }
+    return(
+        <Outlet />
+    );
+}
